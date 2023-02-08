@@ -88,4 +88,13 @@ class Address
 
         return $this;
     }
+
+    public function toArray(): array
+    {
+        $data = [];
+        $data["rue"] = $this->rue;
+        $data["codePostal"] = $this->codePostal;
+        $data["ville"] = $this->ville;
+        return $data;
+    }
 }
