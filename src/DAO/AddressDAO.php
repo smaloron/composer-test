@@ -23,4 +23,25 @@ class AddressDAO
         $statement->execute($address->toArray());
         $address->setId($this->pdo->lastInsertId());
     }
+
+    private function hydrateEntity($data)
+    {
+        $address = new Address;
+        $address
+            ->setRue($data["rue"])
+            ->setCodePostal($data["code_postal"])
+            ->setVille($data["ville"])
+            ->setId($data["id"]);
+
+        return $address;
+    }
+
+    public function findOneById(int $id): Address
+    {
+        $sql = "SELECT * FROM adresses WHERE id = ?";
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute([$id]);
+        $data = $statement->fetch(PDO::FETCH_ASSOC);
+        return $this->hydrateEntity($data);
+    }
 }

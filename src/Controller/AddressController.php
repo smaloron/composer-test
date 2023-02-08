@@ -33,4 +33,10 @@ class AddressController
 
         var_dump($address);
     }
+
+    public function showOne(int $id)
+    {
+        $address = $this->dao->findOneById($id);
+        var_dump($address);
+    }
 }
