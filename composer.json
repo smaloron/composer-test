@@ -1,0 +1,21 @@
+{
+    "name": "smaloron/composertest",
+    "description": "Un projet pour tester composer",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Smaloron\\Test\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "seb",
+            "email": "contact@smaloron.eu"
+        }
+    ],
+    "require": {
+        "bacon/bacon-qr-code": "^2.0",
+        "mpdf/qrcode": "^1.2"
+    }
+}
